@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biznet Gio Network</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="heading" class="container">
+      <div class="d-flex items-end">
+        <div>
+          <h3 class="heading-title">Nama Instance</h3>
+          <ul class="spec">
+            <li>SS2.1</li>
+            <li>2 GB RAM</li>
+            <li>1vCPU</li>
+            <li>60 GB Disk</li>
+            <li>Ubuntu 18.04 LTS</li>
+          </ul>
+        </div>
+
+        <button class="btn-del">Delete</button>
+      </div>
+
+      <hr />
+      <div class="wrapper d-flex items-center">
+        <h4 class="pow-state">Power State: <span>Running</span></h4>
+        <div class="btn-pow-state">
+          <button class="btn-start started">Start</button>
+          <button class="btn-pause">Pause</button>
+          <button class="btn-restart">Restart</button>
+          <button class="btn-turn-off">Power Off</button>
+        </div>
+      </div>
+      <hr />
+    </section>
+
+    <section id="main-content" class="container">
+      <div id="wrapper-tab">
+        <div class="tabs">
+          <input hidden type="radio" name="tab-name" id="tab-1" />
+          <label class="tab-control" for="tab-1">Overview</label>
+
+          <input hidden type="radio" name="tab-name" id="tab-2" />
+          <label class="tab-control" for="tab-2">Access</label>
+
+          <input hidden type="radio" name="tab-name" id="tab-3" checked />
+          <label class="tab-control" for="tab-3">Networks</label>
+
+          <input hidden type="radio" name="tab-name" id="tab-4" />
+          <label class="tab-control" for="tab-4">Security Groups</label>
+
+          <input hidden type="radio" name="tab-name" id="tab-5" />
+          <label class="tab-control" for="tab-5">Volumes</label>
+
+          <input hidden type="radio" name="tab-name" id="tab-6" />
+          <label class="tab-control" for="tab-6">Snapshots</label>
+
+          <input hidden type="radio" name="tab-name" id="tab-7" />
+          <label class="tab-control" for="tab-7">Operations</label>
+
+          <div class="tab-content">
+            <div id="tab-panel-3" class="tab-panel">
+              <h4 class="tab-title">Networks</h4>
+              <div class="sub-menu attach-network">
+                <h4>Attach Network</h4>
+                <div class="d-flex">
+                  <select name="network-name" id="network-name">
+                    <option value="network1">Network1</option>
+                    <option value="network2" selected>Network2</option>
+                    <option value="network3">Network3</option>
+                  </select>
+                  <button class="btn-attach">Attach</button>
+                </div>
+              </div>
+
+              <div class="sub-menu instance-network">
+                <h4>Instance Network</h4>
+                <table>
+                  <tr>
+                    <th>Network Name</th>
+                    <th>Subnet</th>
+                    <th>External Connection</th>
+                    <th>Private IP</th>
+                    <th>Public IP</th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td class="net-name">public_network</td>
+                    <td>192.168.0.0/20</td>
+                    <td>Public</td>
+                    <td>192.168.0.13</td>
+                    <td>103.93.54.133</td>
+                    <td class="icon-action">
+                      <ul class="actions">
+                        <li class="detach" data-modal-target="#modal">
+                          Detach Network
+                        </li>
+                        <li class="remove">Remove Public IP</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="net-name">network1</td>
+                    <td>10.10.0.0/20</td>
+                    <td>Public</td>
+                    <td>10.10.0.14</td>
+                    <td></td>
+                    <td class="icon-action">
+                      <ul class="actions">
+                        <li class="detach" data-modal-target="#modal">
+                          Detach Network
+                        </li>
+                        <li class="remove">Remove Public IP</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <button data-close-button class="close-button">&times;</button>
+      </div>
+      <div class="title">Detach Network</div>
+      <div class="modal-body">
+        Detaching network interface with Public IP will detach network interface
+        and permanently remove the associated Public IP. You will get no refund
+        for your previous payment of Public IP.
+      </div>
+      <div class="modal-footer">
+        <button data-close-button class="btn-cancel-modal">Cancel</button>
+        <button class="btn-detach">Detach</button>
+      </div>
+    </div>
+    <div id="overlay"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
